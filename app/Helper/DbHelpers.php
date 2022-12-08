@@ -16,6 +16,4 @@ class DbHelpers
     {
         return App::make(Contact::class)->where(['contact' => $contact])->first();
     }
-
-
 }

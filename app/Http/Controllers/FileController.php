@@ -19,7 +19,7 @@ class FileController extends Controller
     {
         $itemArray = [];
 
-        echo "Start" . Carbon::now()->format('Y-m-d H:i:s');
+        echo 'Start'.Carbon::now()->format('Y-m-d H:i:s');
         echo "\n";
 
         // Generate number between 1 to 1300000 rows
@@ -28,14 +28,13 @@ class FileController extends Controller
 
             // Chunk array into 4999 rows.
             if (count($itemArray) > 4999) {
-
                 ProcessFile::dispatch($itemArray);
 
                 $itemArray = [];
             }
         }
 
-        echo "End" . Carbon::now()->format('Y-m-d H:i:s');
+        echo 'End'.Carbon::now()->format('Y-m-d H:i:s');
         echo "\n";
 
         return true;
@@ -58,7 +57,7 @@ class FileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return Response
      */
     public static function store()
@@ -76,7 +75,7 @@ class FileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\File $file
+     * @param  \App\Models\File  $file
      * @return Response
      */
     public function show(File $file)
@@ -87,7 +86,7 @@ class FileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\File $file
+     * @param  \App\Models\File  $file
      * @return Response
      */
     public function edit(File $file)
@@ -98,8 +97,8 @@ class FileController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\File $file
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\File  $file
      * @return Response
      */
     public function update(Request $request, File $file)
@@ -110,7 +109,7 @@ class FileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\File $file
+     * @param  \App\Models\File  $file
      * @return Response
      */
     public function destroy(File $file)

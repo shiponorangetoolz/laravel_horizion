@@ -14,8 +14,7 @@ enum Status: int
 
     public function color(): string
     {
-        return match($this)
-        {
+        return match ($this) {
             Status::DRAFT => 'grey',
             Status::PUBLISHED => 'green',
             Status::ARCHIVED => 'red',
@@ -24,8 +23,7 @@ enum Status: int
 
     public function type(): string
     {
-        return match($this)
-        {
+        return match ($this) {
             Status::DRAFT_TYPE => 'good',
             Status::PUBLISHED_TYPE => 'better',
             Status::ARCHIVED_TYPE => 'best',

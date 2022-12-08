@@ -2,8 +2,6 @@
 
 namespace App\Helper;
 
-
-use App\Jobs\ProcessFile;
 use App\Models\Contact;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -11,13 +9,12 @@ use Illuminate\Support\Facades\Log;
 
 class Helpers
 {
-
     public static function runner($items)
     {
         $insertData = [];
 
         foreach ($items as $key => $item) {
-            $contact = 100000000 . "" . $item;
+            $contact = 100000000 .''.$item;
 
             $db = new DbHelpers();
 
@@ -25,10 +22,9 @@ class Helpers
 
             if (is_null($duplicate)) {
                 $insertData[] = [
-                    'contact' => $contact
+                    'contact' => $contact,
                 ];
             }
-
         }
 
         $db = new DbHelpers();
@@ -41,12 +37,11 @@ class Helpers
 
         $itemsArray = [];
 
-        foreach (range(0, (int)$items) as $key => $item) {
+        foreach (range(0, (int) $items) as $key => $item) {
             $itemsArray[] = $item;
 
             if (count($itemsArray) > 999) {
-
-                $contact = 100 . "" . $item;
+                $contact = 100 .''.$item;
 
                 $db = new DbHelpers();
 
@@ -54,7 +49,7 @@ class Helpers
 
                 if (is_null($duplicate)) {
                     Contact::create([
-                        'contact' => $contact
+                        'contact' => $contact,
                     ]);
                 }
 
@@ -72,4 +67,3 @@ class Helpers
         Log::info('End of process file : ', [Carbon::now()->format('Y-m-d H:i:s')]);
     }
 }
-
